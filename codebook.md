@@ -1,9 +1,9 @@
-##Variables:
+## Variables:
 subject - the test subject's ID.
-activity - the physical 
+activity - the physical activity engaged in 
 
-##Measurements:
-##Please refer to the UCI website for more specific descriptions 
+## Measurements:
+## Please refer to the UCI website for more specific descriptions 
 tBodyAccMeanX
 tBodyAccMeanY
 tBodyAccMeanZ
@@ -83,7 +83,7 @@ fBodyBodyGyroMagMeanFreq
 fBodyBodyGyroJerkMagMean
 fBodyBodyGyroJerkMagStd
 fBodyBodyGyroJerkMagMeanFreq
-##Activities:
+## Activities:
 (1) WALKING
 (2) WALKING_UPSTAIRS
 (3) WALKING_DOWNSTAIRS
