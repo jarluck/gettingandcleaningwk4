@@ -26,11 +26,11 @@ data <- data[,grepl("(std)|(mean)", names(data))]
 data$subject <- subject$V1
 data$activity <- actlab$V2[y$V1]
 #put subject and activity as 1st and 2nd cols
-data <- data[,c(ncol(data), ncol(data) - 1, 1:ncol(data) - 2)]
+data <- data[,c(ncol(data), ncol(data) - 1, 1:(ncol(data) - 2))]
 
 #make new tidy data frame, which groups by activity and test subject
 tidyframe <- data.frame(matrix(ncol = ncol(data), nrow = 0))
-
+#names(tidyframe) <- names(data)
 
 
 act <- unique(data$activity)
@@ -44,7 +44,10 @@ for (i in 1:length(act))
     tidyframe <- rbind(tidyframe, newrow)
   }
 }
-#Set column names of tidyframe equal to those of the main data frame. 
+#names and activity labels get messed up for inscrutable reason, let's fix that
 names(tidyframe) <- names(data)
+tidyframe$activity <- actlab$V2[tidyframe$activity]
+
 #output result
+
 write.table(tidyframe, "tidyMotionData.txt", sep="\t", row.name = FALSE)
