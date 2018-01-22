@@ -30,7 +30,7 @@ data <- data[,c(ncol(data), ncol(data) - 1, 1:ncol(data) - 2)]
 
 #make new tidy data frame, which groups by activity and test subject
 tidyframe <- data.frame(matrix(ncol = ncol(data), nrow = 0))
-names(tidyframe) <- names(data)
+
 
 
 act <- unique(data$activity)
@@ -44,5 +44,7 @@ for (i in 1:length(act))
     tidyframe <- rbind(tidyframe, newrow)
   }
 }
+#Set column names of tidyframe equal to those of the main data frame. 
+names(tidyframe) <- names(data)
 #output result
 write.table(tidyframe, "tidyMotionData.txt", sep="\t", row.name = FALSE)
